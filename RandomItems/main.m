@@ -19,11 +19,20 @@ int main(int argc, const char * argv[]) {
             [items addObject:item];
         }
         
+        Item *backpack = [[Item alloc] initWithItemName:@"Backpack"];
+        Item *calculator = [[Item alloc] initWithItemName:@"Calculator"];
+        
+        backpack.containedItem = calculator;
+        
+        backpack = nil;
+        calculator = nil;
+        
         for (Item *item in items) {
             NSLog(@"%@", item);
         }
         
         //Destroy the mutable array object
+        NSLog(@"Setting items to nil");
         items = nil;
         
     }
